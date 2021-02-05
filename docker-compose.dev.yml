@@ -1,0 +1,40 @@
+version: "3"
+
+networks:
+  local:
+    driver: bridge
+
+services:
+  api:
+    build: 
+      context: ./emotion-chat-api
+    working_dir: /emotion-chat-api
+    container_name: emotion-chat-api
+    restart: always
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    volumes:
+      - $PWD/emotion-chat-api:/emotion-chat-api
+      - ./error.log:/usr/src/app/error.log
+    networks:
+      - local
+    environment:
+      - API_PORT=3000
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=azerty
+      - POSTGRES_DB=emotion-chat-database
+      - POSTGRES_PORT=5432
+    depends_on:
+      - database
+
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=azerty
+      - POSTGRES_DB=emotion-chat-database
+    ports:
+    - 5432:5432
+    networks:
+      - local
