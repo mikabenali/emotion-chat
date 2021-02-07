@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const database = require('../models')
 const User = database.models.user
@@ -14,9 +15,9 @@ const create = async (req, res) => {
             password: hashPassword
         })
 
-        return res.status(200).send()
+        return res.sendStatus(200)
     } catch (error) {
-        return res.status(500).send(error)
+        return res.status(500).json({ message: error})
     }
 }
 
@@ -32,7 +33,8 @@ const login = async (req, res) => {
     }
 
     if (bcrypt.compareSync(body.password, user.password)) {
-        return res.status(200).send()
+        const token = jwt.sign(user.dataValues, 'secret')
+        return res.status(200).json(token)
     } else {
         return res.status(401).send()
     }

@@ -4,6 +4,10 @@ networks:
   local:
     driver: bridge
 
+volumes:
+  db-data:
+    driver: local
+
 services:
   api:
     build: 
@@ -35,6 +39,14 @@ services:
       - POSTGRES_PASSWORD=azerty
       - POSTGRES_DB=emotion-chat-database
     ports:
-    - 5432:5432
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
     networks:
       - local
+
+  database-admin:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
