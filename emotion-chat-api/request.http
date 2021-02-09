@@ -1,14 +1,17 @@
+### Bad token
+
 GET http://localhost:3000/users/test
 Accept: application/json
 Authorization: Bearer hbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ1c2VyX3Rlc3QiLCJwYXNzd29yZCI6IiQyYiQxMCR2d0pnaU1ncHBJbHZ1V1JMa1AwenJPeDlKaWRvSHBSLzZZMmhXTEJNQzdCZnlIb3F3SUpyZSIsImNyZWF0ZWRBdCI6IjIwMjEtMDItMDdUMTc6MTg6NTguNTU2WiIsInVwZGF0ZWRBdCI6IjIwMjEtMDItMDdUMTc6MTg6NTguNTU2WiIsImlhdCI6MTYxMjcxOTEzMH0.jVxWlL9YD3EGYQ_lUzMYYdVZShvseo4v5C2QWQCU2Mw
 
-###
-# Good token
+### Good token
+
 GET http://localhost:3000/users/test
 Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJ1c2VyX3Rlc3QiLCJwYXNzd29yZCI6IiQyYiQxMCR2d0pnaU1ncHBJbHZ1V1JMa1AwenJPeDlKaWRvSHBSLzZZMmhXTEJNQzdCZnlIb3F3SUpyZSIsImNyZWF0ZWRBdCI6IjIwMjEtMDItMDdUMTc6MTg6NTguNTU2WiIsInVwZGF0ZWRBdCI6IjIwMjEtMDItMDdUMTc6MTg6NTguNTU2WiIsImlhdCI6MTYxMjcxOTEzMH0.jVxWlL9YD3EGYQ_lUzMYYdVZShvseo4v5C2QWQCU2Mw
 
-###
+### New user
+
 POST http://localhost:3000/users/register
 Content-Type: application/json
 
@@ -17,7 +20,7 @@ Content-Type: application/json
   "password": "Colombes1"
 }
 
-###
+### Login
 
 POST http://localhost:3000/users/login
 Content-Type: application/json

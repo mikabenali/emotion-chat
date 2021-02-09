@@ -29,6 +29,7 @@ services:
       - POSTGRES_PASSWORD=azerty
       - POSTGRES_DB=emotion-chat-database
       - POSTGRES_PORT=5432
+      - JWT_TOKEN_SECRET_KEY:DKFIRPKFMKLFHJ235456LDKFLD3K
     depends_on:
       - database
 
@@ -45,8 +46,19 @@ services:
     networks:
       - local
 
-  database-admin:
-    image: adminer
+  webapp:
+    build:
+      context: ./emotion-chat-webapp
+    working_dir: /emotion-chat-webapp
+    container_name: emotion-chat-webapp
     restart: always
     ports:
-      - 8080:8080
+      - "8080:8080"
+      - "4200:4200"
+    expose:
+      - 4200
+    volumes:
+      - $PWD/emotion-chat-webapp:/emotion-chat-webapp
+      - ./error.log:/usr/src/app/error.log
+    networks:
+      - local
