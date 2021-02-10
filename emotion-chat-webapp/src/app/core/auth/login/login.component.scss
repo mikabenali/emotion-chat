@@ -1,0 +1,11 @@
+.login {
+  width: 600px;
+  vertical-align: center;
+  margin-top: 100px;
+
+  .login__action__button {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+  }
+}

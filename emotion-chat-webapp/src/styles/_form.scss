@@ -1,0 +1,15 @@
+.form {
+  .form__elem {
+    margin-bottom: 10px;
+
+    .form__elem__input {
+      padding: 15px;
+      border: 2px solid #D2E0E5;
+      background-color: #F7F8F9;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+input:focus { outline:none }

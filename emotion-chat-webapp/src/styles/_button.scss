@@ -1,0 +1,19 @@
+.button {
+  padding: 15px;
+}
+
+.button--red {
+  background-color: #FD5353;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.button--red--outline {
+  background-color: #FFF;
+  color: #FD5353;
+  border: 2px solid #FD5353;
+  border-radius: 5px;
+  font-weight: bold;
+}
