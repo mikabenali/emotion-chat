@@ -8,6 +8,7 @@
 
 /* Font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;0,900;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
 /* UI Kit (css framework) */
 @import url('https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/css/uikit.min.css');
@@ -26,4 +27,10 @@ h1 {
 .container {
   margin: auto;
   width: 1200px
+}
+
+.logo {
+  color: #F45D48 !important;
+  font-size: 3em;
+  font-family: 'Poiret One', cursive;
 }

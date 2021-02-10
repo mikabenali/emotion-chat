@@ -35,7 +35,9 @@ const login = async (req, res) => {
     if (bcrypt.compareSync(body.password, user.password)) {
         console.log(process.env)
         const token = jwt.sign(user.dataValues, 'secretKeyTest', { expiresIn: '10s'})
-        return res.status(200).json(token)
+        return res.status(200).json({
+            token: token
+        })
     } else {
         return res.status(401).send()
     }

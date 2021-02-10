@@ -18,6 +18,8 @@ services:
     ports:
       - "3000:3000"
       - "9229:9229"
+    expose:
+      - "3000"
     volumes:
       - $PWD/emotion-chat-api:/emotion-chat-api
       - ./error.log:/usr/src/app/error.log

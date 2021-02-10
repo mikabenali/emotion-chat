@@ -1,26 +1,36 @@
 <div class="login container">
     <div class="uk-card uk-card-default">
         <div>
-            <div class="uk-card uk-card-default uk-card-small uk-card-body">
-                <h3 class="uk-card-title">Log in</h3>
+            <div class="uk-card uk-card-default uk-card-large uk-card-body">
+                <h3 class="uk-card-title logo">emotion chat</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-                <form>
+                <div class="uk-alert-danger" uk-alert [hidden]="!alert">
+                    <a class="uk-alert-close" uk-close></a>
+                    <p>Incorect username or password.</p>
+                </div>
+
+                <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
                     <fieldset class="uk-fieldset">
 
                         <div class="uk-margin">
-                            <input class="uk-input" type="text" placeholder="Username">
+                            <input class="uk-input" type="text" placeholder="Username" formControlName="username">
                         </div>
 
                         <div class="uk-margin">
-                            <input class="uk-input" type="text" placeholder="Password">
+                            <input class="uk-input" type="password" placeholder="Password" formControlName="password">
                         </div>
                     </fieldset>
 
-                    <div class="uk-button-group login__action__button">
-                        <button type="submit" class="uk-button uk-button-primary uk-button-large">Sign In</button>
-                        <button class="uk-button uk-button-default uk-button-large">Sign Up</button>
-                    </div>
+                    <button type="submit" class="uk-button uk-button-primary uk-button-large full-width" [disabled]="!loginForm.valid">
+                        Sign In
+                    </button>
+
+                    <hr class="uk-divider-icon">
+
+                    <button type="submit" class="uk-button uk-button-default uk-button-small full-width">
+                        Create an account
+                    </button>
                 </form>
             </div>
         </div>
