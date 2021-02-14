@@ -9,5 +9,6 @@ router.get('/test', verifyTokenMiddleware, (req, res) => {
 })
 router.post('/register', userController.create)
 router.post('/login', userController.login)
+router.post('/verify_token', userController.verifyToken)
 
 module.exports = router;

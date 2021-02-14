@@ -6,6 +6,14 @@ const User = database.models.user
 const create = async (req, res) => {
     const body = req.body
 
+    const user = await User.findOne({
+        where: { username: body.username}
+    })
+
+    if (user) {
+        return res.status(409).send('User exist')
+    }
+
     const salt = bcrypt.genSaltSync(10)
     const hashPassword = bcrypt.hashSync(body.password, salt)
 
@@ -43,7 +51,12 @@ const login = async (req, res) => {
     }
 }
 
+const verifyToken = async (req, res) => {
+    return res.status(200).send()
+}
+
 module.exports = {
     create,
-    login
+    login,
+    verifyToken
 }

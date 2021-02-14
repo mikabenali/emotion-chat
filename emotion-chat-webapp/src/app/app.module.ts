@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {AuthModule} from "./core/auth/auth.module";
 import {ServicesModule} from "./core/services/services.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MessengerModule} from "./messenger/messenger.module";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     AuthModule,
     ServicesModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MessengerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

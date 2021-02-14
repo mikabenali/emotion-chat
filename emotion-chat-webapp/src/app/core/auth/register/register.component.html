@@ -1,4 +1,4 @@
-<div class="login container">
+<div class="register container">
     <div class="uk-card uk-card-default">
         <div>
             <div class="uk-card uk-card-default uk-card-large uk-card-body">
@@ -10,7 +10,7 @@
                     <p>{{alertMsg}}</p>
                 </div>
 
-                <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
+                <form [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()">
                     <fieldset class="uk-fieldset">
 
                         <div class="uk-margin">
@@ -20,16 +20,24 @@
                         <div class="uk-margin">
                             <input class="uk-input" type="password" placeholder="Password" formControlName="password">
                         </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="password" placeholder="Confirm password" formControlName="confirmPassword">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="email" placeholder="Email" formControlName="email">
+                        </div>
                     </fieldset>
 
-                    <button type="submit" class="uk-button uk-button-primary uk-button-large full-width" [disabled]="!loginForm.valid">
-                        Sign In
+                    <button type="submit" class="uk-button uk-button-primary uk-button-large full-width" [disabled]="!registerForm.valid">
+                        Create an account
                     </button>
 
                     <hr class="uk-divider-icon">
 
-                    <button type="submit" class="uk-button uk-button-default uk-button-small full-width" [routerLink]="['/auth/register']">
-                        Create an account
+                    <button type="submit" class="uk-button uk-button-default uk-button-small full-width" [routerLink]="['/auth/login']">
+                        Sign In
                     </button>
                 </form>
             </div>
